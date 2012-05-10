@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 /**
 * OpenTok PHP Library
@@ -24,6 +24,8 @@
 * THE SOFTWARE.
 */
 
+namespace OpenTok;
+
 class API_Config {
 
 	// Replace this value with your TokBox API Partner Key
@@ -36,4 +38,3 @@ class API_Config {
 	//const API_SERVER = "https://api.opentok.com/hl";
 
 }
-?>

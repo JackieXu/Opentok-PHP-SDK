@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 /**
 * OpenTok PHP Library
@@ -24,22 +24,15 @@
 * THE SOFTWARE.
 */
 
-require_once 'API_Config.php';
-require_once 'OpenTokSession.php';
-require_once 'OpenTokArchive.php';
+namespace OpenTok;
 
-//Generic OpenTok exception. Read the message to get more details
-class OpenTokException extends Exception { };
-//OpenTok exception related to authentication. Most likely an issue with your API key or secret
-class AuthException extends OpenTokException { };
-//OpenTok exception related to the HTTP request. Most likely due to a server error. (HTTP 500 error)
-class RequestException extends OpenTokException { };
-
-class RoleConstants {
-    const SUBSCRIBER = "subscriber"; //Can only subscribe
-    const PUBLISHER = "publisher";   //Can publish, subscribe, and signal
-    const MODERATOR = "moderator";   //Can do the above along with  forceDisconnect and forceUnpublish
-};
+use OpenTok\API_Config as API_Config;
+use OpenTok\RoleConstants as RoleConstants;
+use OpenTok\OpenTokArchive as OpenTokArchive;
+use OpenTok\OpenTokSession as OpenTokSession;
+use OpenTok\Exceptions\OpenTokException as OpenTokException;
+use OpenTok\Exceptions\AuthException as AuthException;
+use OpenTok\Exceptions\RequestException as RequestException;
 
 class OpenTokSDK {
 

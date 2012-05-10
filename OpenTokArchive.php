@@ -1,6 +1,8 @@
 <?php
 
-require_once 'API_Config.php';
+namespace OpenTok;
+
+use OpenTok\API_Config as API_Config;
 
 class OpenTokArchive {
 
@@ -68,55 +70,3 @@ class OpenTokArchive {
     }
 
 }
-
-class OpenTokArchiveVideoResource {
-    private $id;
-    private $type = 'video';
-    private $length;
-
-    public function __construct($id, $length) {
-        $this->id = $id;
-        $this->length = $length;
-    }
-
-    public function getId() {
-        return $this->id;
-    }
-
-    public function getLength() {
-        return $this->length;
-    }
-
-    public static function parseXML($videoResourceItem) {
-        return new OpenTokArchiveVideoResource($videoResourceItem['id'], $videoResourceItem['length']);
-    }
-}
-
-class OpenTokArchiveTimelineEvent {
-    private $eventType;
-    private $resourceId;
-    private $offset;
-
-    public function __construct($eventType, $resourceId, $offset) {
-        $this->eventType = $eventType;
-        $this->resourceId = $resourceId;
-        $this->offset = $offset;
-    }
-
-    public function getEventType() {
-        return $this->eventType;
-    }
-
-    public function getResourceId() {
-        return $this->resourceId;
-    }
-
-    public function getOffset() {
-        return $this->offset;
-    }
-
-    public static function parseXML($timelineItem) {
-        return new OpenTokArchiveTimelineEvent($timelineItem['type'], $timelineItem['id'], $timelineItem['offset']);
-    }
-}
-
